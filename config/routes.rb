@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'entrance/show'
-
+  root 'entrance#show'
   get 'entrance/answer'
 
   # The priority is based upon order of creation: first created -> highest priority.
