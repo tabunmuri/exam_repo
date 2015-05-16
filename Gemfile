@@ -49,5 +49,8 @@ group :development, :test do
   # エラー画面を良くしてくれるgem
   gem "better_errors"
   gem "binding_of_caller"
+
+  # testフレームワーク rspec
+  gem 'rspec-rails', '~> 3.0'
 end
 
