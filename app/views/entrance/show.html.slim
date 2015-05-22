@@ -1,2 +1,18 @@
-h1 Entrance#show
-p Find me in app/views/entrance/show.html.slim
+
+p
+  | 配列に、1~10000までの数の内、重複せずに9999個の値を配列に格納されているとします。
+    この内、1〜10000の数の内、配列に含まれていない数を出力するプログラムと、
+    そのRspecのテストコードを書いてください
+
+p 入出力例
+p
+  | input例 [1, 2343, 9086, 34, ..., 125] 9999がinputの配列にない場合
+    output例 9999
+
+p | 入力値は、右記のように直接入力でも ruby hoge.rb [1,2,3]
+    配列の記載されたファイルを読み込んでも構いません。
+
+h2 抜け数字を入力
+= form_tag({controller: :entrance, action: :answer}) do
+  = text_field_tag("nums", "", placeholder: '394,123,095')
+  = submit_tag("送信")
