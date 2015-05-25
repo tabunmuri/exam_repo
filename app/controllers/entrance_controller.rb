@@ -23,7 +23,7 @@ class EntranceController < ApplicationController
 
     else params["type"] == 1
       # 1〜9999のうち、抜いて欲しい数字を直接入力する場合
-      nums = Number.str_to_numbers(params["nums"])
+      nums = Number.create_collect_numbers(Number.str_to_numbers(params["nums"]))
     end
   end
 end

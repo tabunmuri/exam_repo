@@ -1,4 +1,6 @@
 class Number < ActiveRecord::Base
+  # @maxNumber = 9999
+  @maxNumber = 99
   #
   # find_empty_number
   # 配列の中から、1〜9999の中で抜けている数値を検索する為の関数
@@ -18,8 +20,12 @@ class Number < ActiveRecord::Base
   # Create:: 2015/05/25
   # Copyright:: tabun_muri <tabun.muri100@gmail.com>
   #
-  def self.create_collect_numbers
-
+  def self.create_collect_numbers(emptyNumbers = [])
+    numbers = (1..@maxNumber).to_a
+    emptyNumbers.each do |val|
+      numbers.reject!{|e| e == val}
+    end
+    return numbers
   end
 
   #
