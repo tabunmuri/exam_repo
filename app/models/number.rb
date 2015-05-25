@@ -1,9 +1,23 @@
 class Number < ActiveRecord::Base
+  #
+  # find_empty_number
+  # 配列の中から、1〜9999の中で抜けている数値を検索する為の関数
+  # Author:: shunsuke.fujii
+  # Create:: 2015/05/25
+  # Copyright:: tabun_muri <tabun.muri100@gmail.com>
+  #
   def self.find_empty_number
 
   end
 
 
+  #
+  # create_collect_numbers
+  # 抜け番の数値配列が与えられると、その数値を抜いた数値配列を生成する関数
+  # Author:: shunsuke.fujii
+  # Create:: 2015/05/25
+  # Copyright:: tabun_muri <tabun.muri100@gmail.com>
+  #
   def self.create_collect_numbers
 
   end
