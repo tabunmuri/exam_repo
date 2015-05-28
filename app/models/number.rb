@@ -2,10 +2,11 @@ class Number < ActiveRecord::Base
   # @maxNumber = 9999
   @@maxNumber = 10
 
-  # 1〜10000まで足した合計
-  @@numTotalSum = 50005000
-
   @@numbersList = (1..@@maxNumber).to_a
+
+  # 1〜10000まで足した合計
+  # @@numTotalSum = 50005000
+  @@numTotalSum = @@numbersList.inject {|sum, n| sum + n }
 
   #
   # find_empty_number
@@ -15,13 +16,14 @@ class Number < ActiveRecord::Base
   # Copyright:: tabun_muri <tabun.muri100@gmail.com>
   #
   def self.find_empty_number(numberList = [], algorithmType = 0)
+    p "@@numTotalSum => #{@@numTotalSum}"
     # 渡された配列の個数が、0個もしくはnilの時は、抜け番は全部のため、自動生成する。
     return @@numbersList if numberList.blank? || numberList.size == 0
 
     if numberList.size == @@maxNumber
 
       # 渡された配列の個数が、9999個の時は、抜け数字は必ず1つに絞られる為、引き算をする
-      return @@numTotalSum - numberList.inject {|sum, n| sum + n }
+      return @@numTotalSum - @@numTotalSum
 
     else
 
