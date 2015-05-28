@@ -4,19 +4,17 @@ class Number < ActiveRecord::Base
 
   @@numbersList = (1..@@maxNumber).to_a
 
-  # 1〜10000まで足した合計
-  # @@numTotalSum = 50005000
-  @@numTotalSum = @@numbersList.inject {|sum, n| sum + n }
-
+  # 1〜@@maxNumberまで足した合計
+  @@numTotalSum = (1 + @@maxNumber) * @@maxNumber / 2
   #
   # find_empty_number
-  # 配列の中から、1〜9999の中で抜けている数値を検索する為の関数
+  # 配列の中から、1〜@@maxNumberの中で抜けている数値を検索する為の関数
   # Author:: shunsuke.fujii
   # Create:: 2015/05/25
   # Copyright:: tabun_muri <tabun.muri100@gmail.com>
   #
   def self.find_empty_number(numberList = [], algorithmType = 0)
-    p "@@numTotalSum => #{@@numTotalSum}"
+
     # 渡された配列の個数が、0個もしくはnilの時は、抜け番は全部のため、自動生成する。
     return @@numbersList if numberList.blank? || numberList.size == 0
 
