@@ -2,15 +2,18 @@ class Number < ActiveRecord::Base
   # @maxNumber = 9999
   @@maxNumber = 10
 
+  # 1番から、@@maxNumberまでの数値が入った配列を作成
   @@numbersList = (1..@@maxNumber).to_a
 
   # 1〜@@maxNumberまで足した合計
   @@numTotalSum = (1 + @@maxNumber) * @@maxNumber / 2
+
   #
   # find_empty_number
   # 配列の中から、1〜@@maxNumberの中で抜けている数値を検索する為の関数
   # Author:: shunsuke.fujii
   # Create:: 2015/05/25
+  # Update:: 2015/05/28
   # Copyright:: tabun_muri <tabun.muri100@gmail.com>
   #
   def self.find_empty_number(numberList = [], algorithmType = 0)
@@ -73,12 +76,26 @@ class Number < ActiveRecord::Base
 
   private
 
+  #
+  # create_numbers_list_hash
+  # 与えられた数値配列に基づいて、結果がfalseのハッシュを作成
+  # Author:: shunsuke.fujii
+  # Create:: 2015/05/26
+  # Copyright:: tabun_muri <tabun.muri100@gmail.com>
+  #
   def self.create_numbers_list_hash(numnersList = [])
     numbersHash = {}
     numnersList.each {|val| numbersHash[val] = false}
     return numbersHash
   end
 
+  #
+  # create_numbers_hash
+  # max〜minで連番でhashを作成
+  # Author:: shunsuke.fujii
+  # Create:: 2015/05/26
+  # Copyright:: tabun_muri <tabun.muri100@gmail.com>
+  #
   def self.create_numbers_hash(min = 1, max = @@maxNumber)
     numbersHash = {}
     numnersList.each {|val| numbersHash[val] = false}
