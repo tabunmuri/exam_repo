@@ -1,4 +1,7 @@
 class Number < ActiveRecord::Base
+
+
+
   # @maxNumber = 9999
   @@maxNumber = 10
 
@@ -102,4 +105,6 @@ class Number < ActiveRecord::Base
     numnersList.each {|val| numbersHash[val] = false}
     return numbersHash
   end
+
+  private_class_method :create_numbers_list_hash, :create_numbers_hash
 end
