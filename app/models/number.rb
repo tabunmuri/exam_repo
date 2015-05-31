@@ -8,6 +8,7 @@ class Number < ActiveRecord::Base
   # 1〜@@maxNumberまで足した合計
   @@numTotalSum = (1 + @@maxNumber) * @@maxNumber / 2
 
+
   #
   # find_empty_number
   # 配列の中から、1〜@@maxNumberの中で抜けている数値を検索する為の関数
